@@ -60,7 +60,7 @@ void display(){
 int main(){
     int choice=1;
     while(choice){
-        int op, data;;
+        int op, data;
         printf("\n\nChoose the operation:\n1. Enqueue()\n2. Dequeue()\n3. peek() \n0. To exit\n");
         scanf("%d",&op);
         if(op==0){
