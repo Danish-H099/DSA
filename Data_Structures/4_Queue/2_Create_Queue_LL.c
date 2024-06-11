@@ -1,26 +1,58 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node{
     int data;
     struct node *next;
 };
 
-
+struct node *front=0, *rear=0, *temp;
 
 void enqueue(int data){
-
+    struct node *newnode;
+    newnode = (struct node*)malloc(sizeof(struct node));
+    newnode->data = data;
+    newnode->next = 0;
+    if(front == 0){
+        front = rear = newnode;
+    }
+    else{
+        rear->next = newnode;
+        rear = newnode;
+    }
 }
 
 void dequeue(){
-
+    if(front == 0){
+        printf("Queue is Empty");
+    }
+    else{
+        temp=front;
+        front = front->next;
+        free(temp);
+    }
 }
 
 void peek(){
-
+    if(front == 0){
+        printf("Queue is Empty");
+    }
+    else{
+        printf("\nThis element is in the front :%d",front->data);
+    }
 }
 
 void display(){
-
+    temp = front;
+    if(front == 0){
+        printf("Queue is Empty");
+    }
+    else{
+        while(temp!=0){
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+    }
 }
 
 int main(){
